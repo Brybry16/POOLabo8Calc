@@ -1,5 +1,7 @@
 package Operators.OperatorBinary;
 
+import Utils.State;
+
 /**
  * Created by tonidias on 24.11.15.
  */
@@ -9,7 +11,7 @@ public class OperatorAdd extends OperatorBinary {
     }
 
     @Override
-    void execute() {
+    public void execute() {
         super.execute();
         double test = val1 + val2;
     }

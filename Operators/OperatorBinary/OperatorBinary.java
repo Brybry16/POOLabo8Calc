@@ -1,6 +1,7 @@
 package Operators.OperatorBinary;
 
 import Operators.Operator;
+import Utils.State;
 
 /**
  * Created by tonidias on 24.11.15.
@@ -16,10 +17,10 @@ public class OperatorBinary extends Operator {
 
 
     @Override
-    void execute() {
-        val1 = (double) state.stack.pop();
-        val2 = Double.parseDouble(state.texte);
+    public void execute() {
+        val1 = (double) state.getStack().pop();
+        val2 = Double.parseDouble(state.getTexte());
 
-        System.out.println(val1 +" " + val2);
+        System.out.println(val1 + " " + val2);
     }
 }

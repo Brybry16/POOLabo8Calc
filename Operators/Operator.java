@@ -1,9 +1,11 @@
 package Operators;
 
+import Utils.State;
+
 /**
  * Created by tonidias on 24.11.15.
  */
 public abstract class Operator {
-    State state;
-    abstract void execute();
+    protected State state;
+    public abstract void execute();
 }
