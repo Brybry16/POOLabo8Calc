@@ -4,9 +4,14 @@
  * Pier Donini, 9 Jan 2004.
  */
 
+import Operators.*;
+import Operators.OperatorNumber.OperatorNumber19;
+import Utils.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Stack;
 
 public class JCalculator extends JFrame
 {
@@ -19,6 +24,11 @@ public class JCalculator extends JFrame
   // Composant liste representant le contenu de la pile
   private final JList jStack = new JList(empty);
 
+  private final Stack stack = new Stack();
+
+  //State de la calculatrice
+  private final State state = new State(stack);
+
   // Contraintes pour le placement des composants graphiques
   private final GridBagConstraints constraints = new GridBagConstraints();
 
@@ -28,6 +38,13 @@ public class JCalculator extends JFrame
    */
   private void update()
   {
+    jNumber.setText(state.getTexte());
+    if(0 == stack.size()){
+      jStack.setListData(empty);
+    }
+    else {
+      jStack.setListData(stack);
+    }
     // Modifier une zone de texte, JTextField.setText(string nom)
     // Modifier un composant liste, JList.setListData(Object[] tableau)
   }
@@ -93,7 +110,7 @@ public class JCalculator extends JFrame
     // Boutons 1-9
     for (int i = 1; i < 10; i++) 
       addOperatorButton(String.valueOf(i), (i - 1) % 3, 4 - (i - 1) / 3, 
-			Color.BLUE, null);
+			Color.BLUE, new OperatorNumber19(state,i));
     // Bouton 0
     addOperatorButton("0", 0, 5, Color.BLUE, null);
 
@@ -107,7 +124,7 @@ public class JCalculator extends JFrame
     addOperatorButton("/", 3, 2, Color.RED, null);
     addOperatorButton("*", 3, 3, Color.RED, null);
     addOperatorButton("-", 3, 4, Color.RED, null);
-    addOperatorButton("+", 3, 5, Color.RED, null);
+    addOperatorButton("+", 3, 5, Color.RED, new Operators.OperatorBinary.OperatorAdd(state));
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
     addOperatorButton("1/x", 4, 2, Color.RED, null);
