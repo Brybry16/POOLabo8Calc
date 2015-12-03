@@ -18,7 +18,8 @@ public class OperatorBinary extends Operator {
 
     @Override
     public void execute() {
-        val1 = (double) state.getStack().pop();
+        val1 = Double.parseDouble(state.getStack().pop().toString());
+        System.out.println(val1);
         val2 = Double.parseDouble(state.getTexte());
 
         System.out.println(val1 + " " + val2);

@@ -9,7 +9,7 @@ import java.util.Stack;
 public class State {
     Double ms = null;
     Stack stack;
-    String texte = "";
+    String texte = "0";
     boolean storeInStack = false;
 
     public State(Stack s){

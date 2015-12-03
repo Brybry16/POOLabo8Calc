@@ -18,7 +18,7 @@ public class OperatorNumber extends Operator {
         if(true == state.isStoreInStack()){
             state.getStack().push(Double.parseDouble(state.getTexte()));
             state.setStoreInStack(false);
-            state.setTexte("");
+            state.setTexte("0");
         }
     }
 }

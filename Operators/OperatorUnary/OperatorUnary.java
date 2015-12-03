@@ -15,6 +15,5 @@ public class OperatorUnary extends Operator {
 
     @Override
     public void execute() {
-        state.setStoreInStack(true);
     }
 }

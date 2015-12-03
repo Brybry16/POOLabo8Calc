@@ -14,7 +14,12 @@ public class OperatorNumber19 extends OperatorNumber{
 
     @Override
     public void execute() {
+
         super.execute();
-        state.setTexte(state.getTexte() + number);
+        if(0 != Double.parseDouble(state.getTexte()))
+            state.setTexte(state.getTexte() + number);
+        else{
+            state.setTexte(String.valueOf(number));
+        }
     }
 }

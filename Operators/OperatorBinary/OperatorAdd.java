@@ -14,5 +14,7 @@ public class OperatorAdd extends OperatorBinary {
     public void execute() {
         super.execute();
         double test = val1 + val2;
+        state.setTexte(String.valueOf(test));
+        state.setStoreInStack(true);
     }
 }
