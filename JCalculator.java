@@ -7,9 +7,7 @@
 import Operators.*;
 import Operators.OperatorNumber.Operator0;
 import Operators.OperatorNumber.OperatorNumber19;
-import Operators.OperatorUnary.OperatorDot;
-import Operators.OperatorUnary.OperatorEnt;
-import Operators.OperatorUnary.OperatorSign;
+import Operators.OperatorUnary.*;
 import Utils.*;
 
 import javax.swing.*;
@@ -136,11 +134,11 @@ public class JCalculator extends JFrame
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
     addOperatorButton("1/x", 4, 2, Color.RED, null);
-    addOperatorButton("x^2", 4, 3, Color.RED, null);
-    addOperatorButton("Sqrt", 4, 4, Color.RED, null);
+    addOperatorButton("x^2", 4, 3, Color.RED, new OperatorSquare(state));
+    addOperatorButton("Sqrt", 4, 4, Color.RED, new OperatorSquareRoot(state));
 
     // Entree: met la valeur courante sur le sommet de la pile
-    addOperatorButton("Ent", 4, 5, Color.RED, new Operators.OperatorUnary.OperatorEnt(state));
+    addOperatorButton("Ent", 4, 5, Color.RED, new OperatorEnt(state));
 
     // Affichage de la pile
     JLabel jLabel = new JLabel("Stack");
