@@ -9,6 +9,7 @@ import Operators.OperatorNumber.Operator0;
 import Operators.OperatorNumber.OperatorNumber19;
 import Operators.OperatorUnary.OperatorDot;
 import Operators.OperatorUnary.OperatorEnt;
+import Operators.OperatorUnary.OperatorSign;
 import Utils.*;
 
 import javax.swing.*;
@@ -122,7 +123,7 @@ public class JCalculator extends JFrame
     addOperatorButton("0", 0, 5, Color.BLUE, new Operator0(state));
 
     // Changement de signe de la valeur courante
-    addOperatorButton("+/-", 1, 5, Color.BLUE, null);
+    addOperatorButton("+/-", 1, 5, Color.BLUE, new OperatorSign(state));
 
     // Operateur point (chiffres apres la virgule ensuite)
     addOperatorButton(".", 2, 5, Color.BLUE, new OperatorDot(state));
