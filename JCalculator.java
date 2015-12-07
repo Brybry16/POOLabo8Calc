@@ -5,7 +5,10 @@
  */
 
 import Operators.*;
+import Operators.OperatorNumber.Operator0;
 import Operators.OperatorNumber.OperatorNumber19;
+import Operators.OperatorUnary.OperatorDot;
+import Operators.OperatorUnary.OperatorEnt;
 import Utils.*;
 
 import javax.swing.*;
@@ -116,13 +119,13 @@ public class JCalculator extends JFrame
       addOperatorButton(String.valueOf(i), (i - 1) % 3, 4 - (i - 1) / 3, 
 			Color.BLUE, new OperatorNumber19(state,i));
     // Bouton 0
-    addOperatorButton("0", 0, 5, Color.BLUE, null);
+    addOperatorButton("0", 0, 5, Color.BLUE, new Operator0(state));
 
     // Changement de signe de la valeur courante
     addOperatorButton("+/-", 1, 5, Color.BLUE, null);
 
     // Operateur point (chiffres apres la virgule ensuite)
-    addOperatorButton(".", 2, 5, Color.BLUE, null);
+    addOperatorButton(".", 2, 5, Color.BLUE, new OperatorDot(state));
 
     // Operateurs arithmetiques a deux operandes: /, *, -, +
     addOperatorButton("/", 3, 2, Color.RED, new Operators.OperatorBinary.OperatorDiv(state));
